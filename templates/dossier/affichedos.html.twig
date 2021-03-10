@@ -1,0 +1,37 @@
+{% extends 'admin_template/base.html.twig' %}
+
+{% block title %}Affiche Dossier Patient {% endblock %}
+
+{% block body %}
+
+    <h1> liste des Dossiers patients </h1>
+
+    <table border="1">
+        <tr>
+            <th>N° dossier </th>
+            <th>Antecedents </th>
+            <th>Suivi </th>
+            <th> delete </th>
+            <th> update </th>
+            <th> affiche </th>
+
+        </tr>
+
+        <tr {% for d in dossierp %}>
+            <td>{{d.nDossier }}  </td>
+            <td>{{d.Antecedents}}  </td>
+            <td> {{ d.Suivi }} </td>
+
+            <td>
+                <a href="{{ path('supprimerD',{'nDossier':d.nDossier}) }}"> supprimer</a>
+            </td>
+            <td>
+                <a href="{{ path('updateD',{'nDossier':d.nDossier}) }}"> modifier</a>
+            </td>
+            <td>
+                <a href="{{ path('AfficheD',{'nDossier':d.nDossier}) }}"> Afficher</a>
+            </td>
+        </tr {% endfor %}>
+
+    </table>
+{% endblock %}

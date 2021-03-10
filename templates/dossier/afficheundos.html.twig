@@ -1,0 +1,14 @@
+{% extends 'admin_template/base.html.twig' %}
+
+{% block title %}Dossier Patient
+    {{dossierp.nDossier }}
+{% endblock %}
+
+{% block body %}
+{{ dump(dossierp) }}
+    <h1>  Dossier du patient n° {{dossierp.nDossier }} </h1>
+    <h2> Antecedents</h2> <div> {{dossierp.Antecedents}} </div>
+    <h2> Suivi </h2> <div> {{ dossierp.Suivi }} </div>
+    
+    </table>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'admin_template/base.html.twig' %}
+
+{% block title %}Affiche Fiche Patient {% endblock %}
+
+{% block body %}
+
+    <h1> liste des ordonnaces</h1>
+
+    <table border="1">
+        <tr>
+            <th>N° ordonnance </th>
+            <th>date ordonnace </th>
+            <th>traitement</th>
+
+            <th> delete </th>
+            <th> update </th>
+
+        </tr>
+
+        <tr {% for o in ordonnancep %}>
+            <td>{{o.nOrdonnance }}  </td>
+            <td>{{o.dateord|date ('Y-m-d')}}  </td>
+            <td> {{ o.traitement }} </td>
+
+            <td>
+                <a href="{{ path('supprimerO',{'nOrdonnance':o.nOrdonnance}) }}"> supprimer</a>
+            </td>
+              <td>
+                <a href="{{ path('updateO',{'nOrdonnance':o.nOrdonnance}) }}"> modifier</a>
+            </td>
+        </tr {% endfor %}>
+
+    </table>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'admin_template/base.html.twig' %}
+
+{% block title %}Affiche Fiche Patient {% endblock %}
+
+{% block body %}
+
+    <h1> liste des fiches patient</h1>
+
+    <table border="1">
+        <tr>
+            <th>N° fiche </th>
+            <th>Nom </th>
+            <th>Prenom </th>
+            <th>Date de naissance </th>
+            <th>Sexe </th>
+            <th>Adresse </th>
+            <th>Numero </th>
+            <th> delete </th>
+            <th> update </th>
+
+        </tr>
+
+        <tr {% for f in fichep %}>
+            <td>{{f.nfiche }}  </td>
+            <td>{{f.nomp}}  </td>
+            <td> {{ f.prenomp }} </td>
+            <td>{{f.datenaiss|date ('Y-m-d')  }} </td>
+            <td>{{ f.adresse }}</td>
+            <td>{{f.numerop  }}</td>
+            <td>{{ f.sexep }}</td>
+
+            <td>
+                <a href="{{ path('supprimer',{'nfiche':f.nfiche}) }}"> supprimer</a>
+            </td>
+            <td>
+                <a href="{{ path('update',{'nfiche':f.nfiche}) }}"> modifier</a>
+            </td>
+        </tr {% endfor %}>
+
+    </table>
+{% endblock %}
